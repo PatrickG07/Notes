@@ -9,8 +9,8 @@ import android.util.Log;
 
 /**
  * the DatabaseHelper is a class for doing all things with a database
- * <p>
- * Created by Patrick on 23.03.2017.
+ *
+ * Created by Patrick on 24.08.2017.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "DatabaseHelper";

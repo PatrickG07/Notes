@@ -15,7 +15,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 /**
- * Created by Patrick on 23.08.2017.
+ * SavesActivity for selecting data fom database / deleting data / Restore data
+ *
+ * Created by Patrick on 24.08.2017.
  */
 
 public class SavesActivity extends AppCompatActivity {

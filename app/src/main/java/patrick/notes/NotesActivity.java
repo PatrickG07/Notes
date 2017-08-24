@@ -9,6 +9,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.database.Cursor;
 
+/**
+ * NotesActivity is the Main Activity for writing Notes and to save it / update / new
+ *
+ * Created by Patrick on 24.08.2017.
+ */
 public class NotesActivity extends AppCompatActivity {
 
     DatabaseHelper mDatabaseHelper;

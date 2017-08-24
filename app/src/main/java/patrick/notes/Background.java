@@ -8,7 +8,9 @@ import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 /**
- * Created by finn.gluecki on 23.03.2017.
+ * Background for using int ids and String text in every class
+ *
+ * Created by Patrick on 24.08.2017.
  */
 public class Background extends Service {
 
@@ -43,6 +45,6 @@ public class Background extends Service {
      */
     @Override
     public void onDestroy() {
-        Toast.makeText(this, "on Zerschtören call", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "on Destroy call", Toast.LENGTH_SHORT).show();
     }
 }
