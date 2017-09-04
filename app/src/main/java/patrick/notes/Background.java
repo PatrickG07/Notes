@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 /**
  * Background for using int ids and String text in every class
- *
+ * <p>
  * Created by Patrick on 24.08.2017.
  */
 public class Background extends Service {
@@ -18,9 +18,7 @@ public class Background extends Service {
     static String text;
 
     /**
-     *
-     * @param intent
-     * @return
+     * @param intent;
      */
     @Nullable
     @Override
@@ -29,14 +27,12 @@ public class Background extends Service {
     }
 
     /**
-     *
-     * @param intent
-     * @param flags
-     * @param startId
-     * @return
+     * @param intent;
+     * @param flags;
+     * @param startId;
      */
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId){
+    public int onStartCommand(Intent intent, int flags, int startId) {
         return START_NOT_STICKY;
     }
 

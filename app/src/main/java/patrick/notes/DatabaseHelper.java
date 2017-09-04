@@ -19,8 +19,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL1 = "ID";
     private static final String COL2 = "note";
 
+    Cursor data;
+
     /**
-     * @param context
+     * @param context;
      */
     public DatabaseHelper(Context context) {
         super(context, TABLE_NAME, null, 1);
@@ -29,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * creataes the database with te specific colums
      *
-     * @param db
+     * @param db;
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -41,9 +43,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * delets the database
      *
-     * @param db
-     * @param i
-     * @param i1
+     * @param db;
+     * @param i;
+     * @param i1;
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -54,8 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * wriths data in the database
      *
-     * @param item
-     * @return
+     * @param item;
      */
     public boolean addData(String item) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -77,33 +78,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * givs all data from the database back
      *
-     * @return
      */
     public Cursor getData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME;
-        Cursor data = db.rawQuery(query, null);
+        data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         return data;
     }
 
     /**
      * gives the data with a specific id back
      *
-     * @return
      */
     public Cursor getData2() {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE ID = " + Background.ids;
-        Cursor data = db.rawQuery(query, null);
+        data = db.rawQuery(query, null);
         return data;
     }
 
     /**
      * gets the id with a specific text back
      *
-     * @return
      */
-    public Cursor getData3() {
+    public  Cursor getData3() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT ID FROM " + TABLE_NAME + " WHERE TRIM(" + COL2 + ") = '" + Background.text.trim() + "'", null);
         if(data != null) {

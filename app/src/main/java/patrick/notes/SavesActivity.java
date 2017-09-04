@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,21 +22,20 @@ import java.util.ArrayList;
 public class SavesActivity extends AppCompatActivity {
 
     DatabaseHelper mDatabaseHelper;
-    private Button btnBack, btnDelete;
     private ListView LVSaves;
 
     /**
      * btnDelete delets the entety with the selected id from the listview
      * LVSave gets the id and the text from the selected row
      *
-     * @param savedInstanceState
+     * @param savedInstanceState;
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saves);
-        btnBack = (Button) findViewById(R.id.btnBack);
-        btnDelete = (Button) findViewById(R.id.btnDelete);
+        Button btnBack = (Button) findViewById(R.id.btnBack);
+        Button btnDelete = (Button) findViewById(R.id.btnDelete);
         mDatabaseHelper = new DatabaseHelper(this);
         LVSaves = (ListView) findViewById(R.id.listView);
 
@@ -58,8 +56,7 @@ public class SavesActivity extends AppCompatActivity {
 
         LVSaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedFromList = (LVSaves.getItemAtPosition(position).toString().trim());
-                Background.text = selectedFromList;
+                Background.text = (LVSaves.getItemAtPosition(position).toString().trim());
                 mDatabaseHelper.getData3();
             }
         });

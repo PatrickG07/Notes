@@ -10,13 +10,12 @@ import android.database.Cursor;
 
 /**
  * NotesActivity is the Main Activity for writing Notes and to save it / update / new
- *
+ * <p>
  * Created by Patrick on 24.08.2017.
  */
 public class NotesActivity extends AppCompatActivity {
 
     DatabaseHelper mDatabaseHelper;
-    private Button btnSave, btnRestoreData, btnNew;
     private TextView tv;
 
     String newEntry;
@@ -26,16 +25,16 @@ public class NotesActivity extends AppCompatActivity {
      * btnRestoreData it will change the activiti to one to select data and delet data
      * btnNew creates a new data on the database
      *
-     * @param savedInstanceState
+     * @param savedInstanceState;
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
         tv = (TextView) findViewById(R.id.editNote);
-        btnRestoreData = (Button) findViewById(R.id.btnRestore);
-        btnSave = (Button) findViewById(R.id.btnSave);
-        btnNew = (Button) findViewById(R.id.btnNew);
+        Button btnRestoreData = (Button) findViewById(R.id.btnRestore);
+        Button btnSave = (Button) findViewById(R.id.btnSave);
+        Button btnNew = (Button) findViewById(R.id.btnNew);
         mDatabaseHelper = new DatabaseHelper(this);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -48,23 +47,15 @@ public class NotesActivity extends AppCompatActivity {
         btnRestoreData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //creates a popup for saving or continue
-                int i = 1;
-                if(i == 1){ //save and continue
-                    onInsert();
-                    Intent intent = new Intent(NotesActivity.this, SavesActivity.class);
-                    startActivity(intent);
-                }else{ //continue with out saving
-                    Intent intent = new Intent(NotesActivity.this, SavesActivity.class);
-                    startActivity(intent);
-                }
+                onInsert();
+                Intent intent = new Intent(NotesActivity.this, SavesActivity.class);
+                startActivity(intent);
             }
         });
 
         btnNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //onInsert();
                 Background.text = "";
                 Background.ids = 0;
                 tv.setText("");
