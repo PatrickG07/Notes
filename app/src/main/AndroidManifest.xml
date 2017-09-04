@@ -19,5 +19,4 @@
         </activity>
         <activity android:name=".SavesActivity" android:screenOrientation="portrait"/>
     </application>
-
 </manifest>

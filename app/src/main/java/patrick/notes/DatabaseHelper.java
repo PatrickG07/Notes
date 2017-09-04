@@ -106,7 +106,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getData3() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT ID FROM " + TABLE_NAME + " WHERE TRIM(" + COL2 + ") = '" + Background.text.trim() + "'", null);
-        data.moveToFirst();
+        if(data != null) {
+            data.moveToFirst();
+        }
         Background.ids = data.getInt(0);
         return data;
     }

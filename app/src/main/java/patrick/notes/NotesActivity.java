@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.database.Cursor;
 
 /**
@@ -49,9 +48,16 @@ public class NotesActivity extends AppCompatActivity {
         btnRestoreData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //onRestore();
-                Intent intent = new Intent(NotesActivity.this, SavesActivity.class);
-                startActivity(intent);
+                //creates a popup for saving or continue
+                int i = 1;
+                if(i == 1){ //save and continue
+                    onInsert();
+                    Intent intent = new Intent(NotesActivity.this, SavesActivity.class);
+                    startActivity(intent);
+                }else{ //continue with out saving
+                    Intent intent = new Intent(NotesActivity.this, SavesActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
