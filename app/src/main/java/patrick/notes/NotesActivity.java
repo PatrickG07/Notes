@@ -3,7 +3,6 @@ package patrick.notes;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,7 +10,7 @@ import android.database.Cursor;
 
 /**
  * NotesActivity is the Main Activity for writing Notes and to save it / update / new
- * <p>
+ *
  * Created by Patrick on 24.08.2017.
  */
 public class NotesActivity extends AppCompatActivity {
@@ -34,16 +33,8 @@ public class NotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notes);
         tv = (TextView) findViewById(R.id.editNote);
         Button btnRestoreData = (Button) findViewById(R.id.btnRestore);
-        Button btnSave = (Button) findViewById(R.id.btnSave);
         Button btnNew = (Button) findViewById(R.id.btnNew);
         mDatabaseHelper = new DatabaseHelper(this);
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onInsert();
-            }
-        });
 
         btnRestoreData.setOnClickListener(new View.OnClickListener() {
             @Override
